@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+  </style>
+
+  <title>Image Gallary</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/icon.png">
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body style="font-family: 'Kanit', sans-serif;">
+
+  <div class="container" id="app" style="background-color:burlywood; margin-top: 50px;">
+    <h3 class="p-6 inline-block">Total Photo ( {{ picture.length }} )</h3>
+
+    <photo-search v-model:input-Search="inputSearch"></photo-search>
+
+    <p>Discription : click like button to support photographer, double click picture frame to view picture.</p>
+
+    <photo-view :viewimg="viewImg" :hasview="hasView" @close="closeView"></photo-view>
+    
+    <h2 v-show="resultNull">Pic not found</h2>
+    <photo-item :picture="filterSearch" @viewing="toggleView"></photo-item>
+
+      </div>
+      <!-- my main.js -->
+      <script src="./main.js"></script>
+      <script src="./Component/PhotoSearch.js"></script>
+      <script src="./Component/PhotoItem.js"></script>
+      <script src="./Component/PhotoView.js"></script>
+      <script>
+        const mountedApp = app.mount('#app')
+      </script>
+</body>
+
+</html>
