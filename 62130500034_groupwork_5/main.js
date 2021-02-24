@@ -7,8 +7,6 @@ const app = Vue.createApp ({
                     {title: 'Doi Inthanon',country: 'Thailand',url:'./images/Doi Inthanon.jpg',like:false}
                 ],
         filterResult:null,
-        useSearch : false,
-        resultNull: false,
         hasView : false,
         viewImg:'',
         inputSearch:''
@@ -19,9 +17,6 @@ const app = Vue.createApp ({
         toggleView(index){
             this.viewImg = this.picture[index].url;
             this.hasView = true;
-        },
-        passInputValue(inputSearch){
-            this.inputSearch = inputSearch;
         },
         closeView(){
             this.hasView = !this.hasView

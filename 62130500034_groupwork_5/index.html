@@ -30,7 +30,7 @@
 <body style="font-family: 'Kanit', sans-serif;">
 
   <div class="container" id="app" style="background-color:burlywood; margin-top: 50px;">
-    <h3 class="p-6 inline-block">Total Photo ( {{ picture.length }} )</h3>
+    <h3 class="p-6 inline-block">Total Photo ( {{ filterSearch.length }} )</h3>
 
     <photo-search v-model:input-Search="inputSearch"></photo-search>
 
@@ -38,7 +38,8 @@
 
     <photo-view :viewimg="viewImg" :hasview="hasView" @close="closeView"></photo-view>
     
-    <h2 v-show="resultNull">Pic not found</h2>
+    <h2 v-show="filterSearch.length == 0" class="p-10 flex justify-center">Pic not found</h2>
+
     <photo-item :picture="filterSearch" @viewing="toggleView"></photo-item>
 
       </div>
